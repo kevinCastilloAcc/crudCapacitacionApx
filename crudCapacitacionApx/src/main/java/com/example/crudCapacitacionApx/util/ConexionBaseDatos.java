@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class ConexionBaseDatos {
 
+    //**FALTA COLOCAR LAS VARIABLES DE ENTORNO
     private static String url = "jdbc:mysql://localhost:3306/myschool?serverTimezone=America/Merida";
     private static String username = "root";
     private static String password = "sasa";

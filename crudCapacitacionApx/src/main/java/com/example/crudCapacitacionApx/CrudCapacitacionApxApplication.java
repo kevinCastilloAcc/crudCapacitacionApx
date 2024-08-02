@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.crudCapacitacionApx.repositorio"})
+//@ComponentScan(basePackages = {"com.example.crudCapacitacionApx.repositorio"})
 
 public class CrudCapacitacionApxApplication{
 

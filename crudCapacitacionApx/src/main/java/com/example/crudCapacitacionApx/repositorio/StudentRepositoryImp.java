@@ -2,11 +2,13 @@ package com.example.crudCapacitacionApx.repositorio;
 
 import com.example.crudCapacitacionApx.model.Student;
 import com.example.crudCapacitacionApx.util.ConexionBaseDatos;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class StudentRepositoryImp implements StudentRepository<Student> {
 
     //Get connection
@@ -50,7 +52,7 @@ public class StudentRepositoryImp implements StudentRepository<Student> {
     }
 
     @Override
-    public void save(Student student) {
+    public Student save(Student student) {
         String sql;
         if (student.getId() != null && student.getId() > 0) {
             //Update
@@ -67,6 +69,7 @@ public class StudentRepositoryImp implements StudentRepository<Student> {
                 stmt.setLong(4, student.getId());
             }
             stmt.executeUpdate();
+            return student;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

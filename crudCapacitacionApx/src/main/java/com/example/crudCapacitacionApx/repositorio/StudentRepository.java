@@ -15,7 +15,7 @@ public interface StudentRepository<S>{
     List<S> findAll();
     S findById(Long id);
 
-    void save(S s); //Save element or update
+    S save(S s); //Save element or update
 
     void delete(Long id);
 

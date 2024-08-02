@@ -1,5 +1,8 @@
 package com.example.crudCapacitacionApx.model;
 
+import com.example.crudCapacitacionApx.model.dto.StudentInDTO;
+import com.example.crudCapacitacionApx.model.dto.StudentUpdDTO;
+
 import java.sql.Date;
 import java.time.LocalDateTime;
 
@@ -8,7 +11,7 @@ public class Student {
 
     private Long id;
     private String name;
-    private Date dateOfBirth;
+    private java.util.Date dateOfBirth;
     private Long dateAverage;
 
     public Student() {
@@ -20,6 +23,12 @@ public class Student {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.dateAverage = dateAverage;
+    }
+
+    public Student(StudentInDTO studentInDTO) {
+        this.name = studentInDTO.getName();
+        this.dateOfBirth = studentInDTO.getDate_of_birth();
+        this.dateAverage = Long.valueOf(studentInDTO.getGrade_average());
     }
 
     public Long getId() {
@@ -38,7 +47,7 @@ public class Student {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public java.util.Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -62,5 +71,17 @@ public class Student {
                 ", dateOfBirth=" + dateOfBirth +
                 ", dateAverage=" + dateAverage +
                 '}';
+    }
+
+    public void updateData(StudentUpdDTO studentUpdDTO) {
+        if (studentUpdDTO.getName() != null) {
+            this.name = studentUpdDTO.getName();
+        }
+        if (studentUpdDTO.getDate_of_birth() != null) {
+            this.dateOfBirth = studentUpdDTO.getDate_of_birth();
+        }
+        if (studentUpdDTO.getGrade_average() != null) {
+            this.dateAverage = studentUpdDTO.getGrade_average();
+        }
     }
 }
